@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Technician_Maintenance
+namespace Customer_Incidents
 {
 	static class Program
 	{
@@ -16,7 +16,7 @@ namespace Technician_Maintenance
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmTechnicianMaintenance());
+			Application.Run(new frmCustomerIncidents());
 		}
 	}
 }

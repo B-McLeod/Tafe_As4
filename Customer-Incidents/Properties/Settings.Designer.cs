@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Technician_Maintenance.Properties {
+namespace Customer_Incidents.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

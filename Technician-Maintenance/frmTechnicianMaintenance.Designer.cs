@@ -1,6 +1,6 @@
-﻿namespace Product_Maintenance
+﻿namespace Technician_Maintenance
 {
-	partial class frmProductMaintenance
+	partial class frmTechnicianMaintenance
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductMaintenance));
-			this.techSupportDataSet = new Product_Maintenance.TechSupportDataSet();
-			this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.productsTableAdapter = new Product_Maintenance.TechSupportDataSetTableAdapters.ProductsTableAdapter();
-			this.tableAdapterManager = new Product_Maintenance.TechSupportDataSetTableAdapters.TableAdapterManager();
-			this.productsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTechnicianMaintenance));
+			this.techSupportDataSet = new Technician_Maintenance.TechSupportDataSet();
+			this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.techniciansTableAdapter = new Technician_Maintenance.TechSupportDataSetTableAdapters.TechniciansTableAdapter();
+			this.tableAdapterManager = new Technician_Maintenance.TechSupportDataSetTableAdapters.TableAdapterManager();
+			this.techniciansBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
 			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -46,17 +46,20 @@
 			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.productsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-			this.productsDataGridView = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.techniciansBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+			this.txtID = new System.Windows.Forms.TextBox();
+			this.txtName = new System.Windows.Forms.TextBox();
+			this.txtEmail = new System.Windows.Forms.TextBox();
+			this.txtPhone = new System.Windows.Forms.TextBox();
+			this.lblTechID = new System.Windows.Forms.Label();
+			this.lblName = new System.Windows.Forms.Label();
+			this.lblEmail = new System.Windows.Forms.Label();
+			this.lblPhone = new System.Windows.Forms.Label();
+			this.lblMessage = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingNavigator)).BeginInit();
-			this.productsBindingNavigator.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).BeginInit();
+			this.techniciansBindingNavigator.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// techSupportDataSet
@@ -64,28 +67,28 @@
 			this.techSupportDataSet.DataSetName = "TechSupportDataSet";
 			this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
-			// productsBindingSource
+			// techniciansBindingSource
 			// 
-			this.productsBindingSource.DataMember = "Products";
-			this.productsBindingSource.DataSource = this.techSupportDataSet;
+			this.techniciansBindingSource.DataMember = "Technicians";
+			this.techniciansBindingSource.DataSource = this.techSupportDataSet;
 			// 
-			// productsTableAdapter
+			// techniciansTableAdapter
 			// 
-			this.productsTableAdapter.ClearBeforeFill = true;
+			this.techniciansTableAdapter.ClearBeforeFill = true;
 			// 
 			// tableAdapterManager
 			// 
 			this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-			this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
-			this.tableAdapterManager.UpdateOrder = Product_Maintenance.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+			this.tableAdapterManager.TechniciansTableAdapter = this.techniciansTableAdapter;
+			this.tableAdapterManager.UpdateOrder = Technician_Maintenance.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
 			// 
-			// productsBindingNavigator
+			// techniciansBindingNavigator
 			// 
-			this.productsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-			this.productsBindingNavigator.BindingSource = this.productsBindingSource;
-			this.productsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-			this.productsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-			this.productsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.techniciansBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+			this.techniciansBindingNavigator.BindingSource = this.techniciansBindingSource;
+			this.techniciansBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+			this.techniciansBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+			this.techniciansBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -97,17 +100,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.productsBindingNavigatorSaveItem});
-			this.productsBindingNavigator.Location = new System.Drawing.Point(0, 0);
-			this.productsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-			this.productsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-			this.productsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-			this.productsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-			this.productsBindingNavigator.Name = "productsBindingNavigator";
-			this.productsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-			this.productsBindingNavigator.Size = new System.Drawing.Size(478, 25);
-			this.productsBindingNavigator.TabIndex = 0;
-			this.productsBindingNavigator.Text = "bindingNavigator1";
+            this.techniciansBindingNavigatorSaveItem});
+			this.techniciansBindingNavigator.Location = new System.Drawing.Point(0, 0);
+			this.techniciansBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+			this.techniciansBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+			this.techniciansBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+			this.techniciansBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+			this.techniciansBindingNavigator.Name = "techniciansBindingNavigator";
+			this.techniciansBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+			this.techniciansBindingNavigator.Size = new System.Drawing.Size(295, 25);
+			this.techniciansBindingNavigator.TabIndex = 0;
+			this.techniciansBindingNavigator.Text = "bindingNavigator1";
 			// 
 			// bindingNavigatorAddNewItem
 			// 
@@ -133,6 +136,7 @@
 			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
 			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
 			this.bindingNavigatorDeleteItem.Text = "Delete";
+			this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
 			// 
 			// bindingNavigatorMoveFirstItem
 			// 
@@ -194,74 +198,125 @@
 			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
 			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
-			// productsBindingNavigatorSaveItem
+			// techniciansBindingNavigatorSaveItem
 			// 
-			this.productsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.productsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("productsBindingNavigatorSaveItem.Image")));
-			this.productsBindingNavigatorSaveItem.Name = "productsBindingNavigatorSaveItem";
-			this.productsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-			this.productsBindingNavigatorSaveItem.Text = "Save Data";
-			this.productsBindingNavigatorSaveItem.Click += new System.EventHandler(this.productsBindingNavigatorSaveItem_Click);
+			this.techniciansBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.techniciansBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("techniciansBindingNavigatorSaveItem.Image")));
+			this.techniciansBindingNavigatorSaveItem.Name = "techniciansBindingNavigatorSaveItem";
+			this.techniciansBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+			this.techniciansBindingNavigatorSaveItem.Text = "Save Data";
+			this.techniciansBindingNavigatorSaveItem.Click += new System.EventHandler(this.techniciansBindingNavigatorSaveItem_Click);
 			// 
-			// productsDataGridView
+			// txtID
 			// 
-			this.productsDataGridView.AutoGenerateColumns = false;
-			this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-			this.productsDataGridView.DataSource = this.productsBindingSource;
-			this.productsDataGridView.Location = new System.Drawing.Point(12, 28);
-			this.productsDataGridView.Name = "productsDataGridView";
-			this.productsDataGridView.Size = new System.Drawing.Size(454, 235);
-			this.productsDataGridView.TabIndex = 1;
+			this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "TechID", true));
+			this.txtID.Location = new System.Drawing.Point(70, 32);
+			this.txtID.MaxLength = 32373;
+			this.txtID.Name = "txtID";
+			this.txtID.ReadOnly = true;
+			this.txtID.Size = new System.Drawing.Size(189, 20);
+			this.txtID.TabIndex = 1;
 			// 
-			// dataGridViewTextBoxColumn1
+			// txtName
 			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "ProductCode";
-			this.dataGridViewTextBoxColumn1.HeaderText = "ProductCode";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Name", true));
+			this.txtName.Location = new System.Drawing.Point(70, 58);
+			this.txtName.MaxLength = 50;
+			this.txtName.Name = "txtName";
+			this.txtName.Size = new System.Drawing.Size(189, 20);
+			this.txtName.TabIndex = 2;
 			// 
-			// dataGridViewTextBoxColumn2
+			// txtEmail
 			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Email", true));
+			this.txtEmail.Location = new System.Drawing.Point(70, 84);
+			this.txtEmail.MaxLength = 50;
+			this.txtEmail.Name = "txtEmail";
+			this.txtEmail.Size = new System.Drawing.Size(189, 20);
+			this.txtEmail.TabIndex = 3;
 			// 
-			// dataGridViewTextBoxColumn3
+			// txtPhone
 			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "Version";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Version";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Phone", true));
+			this.txtPhone.Location = new System.Drawing.Point(70, 110);
+			this.txtPhone.MaxLength = 20;
+			this.txtPhone.Name = "txtPhone";
+			this.txtPhone.Size = new System.Drawing.Size(189, 20);
+			this.txtPhone.TabIndex = 4;
 			// 
-			// dataGridViewTextBoxColumn4
+			// lblTechID
 			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "ReleaseDate";
-			this.dataGridViewTextBoxColumn4.HeaderText = "ReleaseDate";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.lblTechID.AutoSize = true;
+			this.lblTechID.Location = new System.Drawing.Point(12, 35);
+			this.lblTechID.Name = "lblTechID";
+			this.lblTechID.Size = new System.Drawing.Size(52, 13);
+			this.lblTechID.TabIndex = 5;
+			this.lblTechID.Text = "Tech. ID:";
 			// 
-			// frmProductMaintenance
+			// lblName
+			// 
+			this.lblName.AutoSize = true;
+			this.lblName.Location = new System.Drawing.Point(26, 61);
+			this.lblName.Name = "lblName";
+			this.lblName.Size = new System.Drawing.Size(38, 13);
+			this.lblName.TabIndex = 6;
+			this.lblName.Text = "Name:";
+			// 
+			// lblEmail
+			// 
+			this.lblEmail.AutoSize = true;
+			this.lblEmail.Location = new System.Drawing.Point(29, 87);
+			this.lblEmail.Name = "lblEmail";
+			this.lblEmail.Size = new System.Drawing.Size(35, 13);
+			this.lblEmail.TabIndex = 7;
+			this.lblEmail.Text = "Email:";
+			// 
+			// lblPhone
+			// 
+			this.lblPhone.AutoSize = true;
+			this.lblPhone.Location = new System.Drawing.Point(23, 113);
+			this.lblPhone.Name = "lblPhone";
+			this.lblPhone.Size = new System.Drawing.Size(41, 13);
+			this.lblPhone.TabIndex = 8;
+			this.lblPhone.Text = "Phone:";
+			// 
+			// lblMessage
+			// 
+			this.lblMessage.AutoSize = true;
+			this.lblMessage.Location = new System.Drawing.Point(12, 137);
+			this.lblMessage.Name = "lblMessage";
+			this.lblMessage.Size = new System.Drawing.Size(10, 13);
+			this.lblMessage.TabIndex = 9;
+			this.lblMessage.Text = ".";
+			this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// frmTechnicianMaintenance
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(478, 275);
-			this.Controls.Add(this.productsDataGridView);
-			this.Controls.Add(this.productsBindingNavigator);
+			this.ClientSize = new System.Drawing.Size(295, 159);
+			this.Controls.Add(this.lblMessage);
+			this.Controls.Add(this.lblPhone);
+			this.Controls.Add(this.lblEmail);
+			this.Controls.Add(this.lblName);
+			this.Controls.Add(this.lblTechID);
+			this.Controls.Add(this.txtPhone);
+			this.Controls.Add(this.txtEmail);
+			this.Controls.Add(this.txtName);
+			this.Controls.Add(this.txtID);
+			this.Controls.Add(this.techniciansBindingNavigator);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmProductMaintenance";
+			this.Name = "frmTechnicianMaintenance";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Product Maintenance | Technical Support";
-			this.Load += new System.EventHandler(this.frmProductMaintenance_Load);
+			this.Text = "Technician Maintenance | Technical Support";
+			this.Load += new System.EventHandler(this.frmTechnicianMaintenance_Load);
 			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingNavigator)).EndInit();
-			this.productsBindingNavigator.ResumeLayout(false);
-			this.productsBindingNavigator.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).EndInit();
+			this.techniciansBindingNavigator.ResumeLayout(false);
+			this.techniciansBindingNavigator.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -270,10 +325,10 @@
 		#endregion
 
 		private TechSupportDataSet techSupportDataSet;
-		private System.Windows.Forms.BindingSource productsBindingSource;
-		private TechSupportDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+		private System.Windows.Forms.BindingSource techniciansBindingSource;
+		private TechSupportDataSetTableAdapters.TechniciansTableAdapter techniciansTableAdapter;
 		private TechSupportDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-		private System.Windows.Forms.BindingNavigator productsBindingNavigator;
+		private System.Windows.Forms.BindingNavigator techniciansBindingNavigator;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
 		private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -285,12 +340,16 @@
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
 		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-		private System.Windows.Forms.ToolStripButton productsBindingNavigatorSaveItem;
-		private System.Windows.Forms.DataGridView productsDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+		private System.Windows.Forms.ToolStripButton techniciansBindingNavigatorSaveItem;
+		private System.Windows.Forms.TextBox txtID;
+		private System.Windows.Forms.TextBox txtName;
+		private System.Windows.Forms.TextBox txtEmail;
+		private System.Windows.Forms.TextBox txtPhone;
+		private System.Windows.Forms.Label lblTechID;
+		private System.Windows.Forms.Label lblName;
+		private System.Windows.Forms.Label lblEmail;
+		private System.Windows.Forms.Label lblPhone;
+		private System.Windows.Forms.Label lblMessage;
 	}
 }
 

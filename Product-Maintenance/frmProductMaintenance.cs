@@ -7,15 +7,13 @@ namespace Product_Maintenance
 {
 	public partial class frmProductMaintenance : Form
 	{
-		/* Default Initializer */
-
+		/* Default Constructor */
 		public frmProductMaintenance()
 		{
 			InitializeComponent();
 		}
 
 		/* Save Button */
-
 		private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
 		{
 			this.Validate();
@@ -27,20 +25,24 @@ namespace Product_Maintenance
 			catch (DBConcurrencyException)
 			{
 				MessageBox.Show("A concurrency error occurred. " +
-					"Some rows were not updated. ", "Save Error");
+				"Some rows were not updated. ", "Save Error");
 				this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
+			}
+			catch (DataException ex)
+			{
+				MessageBox.Show(ex.Message, ex.GetType().ToString());
+				productsBindingSource.CancelEdit();
 			}
 			catch (SqlException ex)
 			{
 				MessageBox.Show(
-					"Database error # " + ex.Number +
-					": " + ex.Message, ex.GetType().ToString());
+				"Database error # " + ex.Number +
+				": " + ex.Message, ex.GetType().ToString());
 			}
 		}
 
 		/* Form Load */
-
-		private void Form1_Load(object sender, EventArgs e)
+		private void frmProductMaintenance_Load(object sender, EventArgs e)
 		{
 			// TODO: This line of code loads data into the 'techSupportDataSet.Products' table. You can move, or remove it, as needed.
 			try
@@ -50,18 +52,17 @@ namespace Product_Maintenance
 			catch (SqlException ex)
 			{
 				MessageBox.Show("Database error # " + ex.Number +
-					": " + ex.Message, ex.GetType().ToString());
+				": " + ex.Message, ex.GetType().ToString());
 			}
 		}
 
 		/* Data Error Method */
-
 		private void productsDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			int row = e.RowIndex + 1;
 			string errorMessage = "A data error occurred.\n" +
-				"Row: " + row + "\n" +
-				"Error: " + e.Exception.Message;
+			"Row: " + row + "\n" +
+			"Error: " + e.Exception.Message;
 			MessageBox.Show(errorMessage, "Data Error");
 		}
 	}

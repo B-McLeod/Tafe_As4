@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74E9DD87-48CE-4B63-90AA-0FD2522F532F}</ProjectGuid>
+    <ProjectGuid>{56B7A72A-5C01-487A-8428-5E9ADFCB26D4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Technician_Maintenance</RootNamespace>
@@ -44,16 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmTechnicalSupport.cs">
+    <Compile Include="frmTechnicianMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTechnicalSupport.Designer.cs">
-      <DependentUpon>frmTechnicalSupport.cs</DependentUpon>
+    <Compile Include="frmTechnicianMaintenance.Designer.cs">
+      <DependentUpon>frmTechnicianMaintenance.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmTechnicalSupport.resx">
-      <DependentUpon>frmTechnicalSupport.cs</DependentUpon>
+    <Compile Include="TechSupportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmTechnicianMaintenance.resx">
+      <DependentUpon>frmTechnicianMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -73,6 +78,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TechSupportDataSet.xsc">
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechSupportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechSupportDataSet.xss">
+      <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
