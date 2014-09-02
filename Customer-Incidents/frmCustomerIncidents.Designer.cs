@@ -47,10 +47,6 @@
 			this.txtEmail = new System.Windows.Forms.TextBox();
 			this.incidentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.incidentsDataGridView = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.getCustomerToolStrip = new System.Windows.Forms.ToolStrip();
 			this.customerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
 			this.customerIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -59,6 +55,10 @@
 			this.incidentsTableAdapter = new Customer_Incidents.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
 			this.tableAdapterManager = new Customer_Incidents.TechSupportDataSetTableAdapters.TableAdapterManager();
 			this.customersTableAdapter = new Customer_Incidents.TechSupportDataSetTableAdapters.CustomersTableAdapter();
+			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).BeginInit();
@@ -73,7 +73,7 @@
 			this.lblCustomerID.Location = new System.Drawing.Point(23, 45);
 			this.lblCustomerID.Name = "lblCustomerID";
 			this.lblCustomerID.Size = new System.Drawing.Size(68, 13);
-			this.lblCustomerID.TabIndex = 24;
+			this.lblCustomerID.TabIndex = 4;
 			this.lblCustomerID.Text = "Customer ID:";
 			// 
 			// lblName
@@ -82,7 +82,7 @@
 			this.lblName.Location = new System.Drawing.Point(53, 71);
 			this.lblName.Name = "lblName";
 			this.lblName.Size = new System.Drawing.Size(38, 13);
-			this.lblName.TabIndex = 23;
+			this.lblName.TabIndex = 5;
 			this.lblName.Text = "Name:";
 			// 
 			// lblAddress
@@ -91,7 +91,7 @@
 			this.lblAddress.Location = new System.Drawing.Point(43, 97);
 			this.lblAddress.Name = "lblAddress";
 			this.lblAddress.Size = new System.Drawing.Size(48, 13);
-			this.lblAddress.TabIndex = 22;
+			this.lblAddress.TabIndex = 6;
 			this.lblAddress.Text = "Address:";
 			// 
 			// lblAddress2
@@ -100,7 +100,7 @@
 			this.lblAddress2.Location = new System.Drawing.Point(12, 123);
 			this.lblAddress2.Name = "lblAddress2";
 			this.lblAddress2.Size = new System.Drawing.Size(79, 13);
-			this.lblAddress2.TabIndex = 21;
+			this.lblAddress2.TabIndex = 7;
 			this.lblAddress2.Text = "City, State, Zip:";
 			// 
 			// lblPhone
@@ -109,7 +109,7 @@
 			this.lblPhone.Location = new System.Drawing.Point(50, 150);
 			this.lblPhone.Name = "lblPhone";
 			this.lblPhone.Size = new System.Drawing.Size(41, 13);
-			this.lblPhone.TabIndex = 20;
+			this.lblPhone.TabIndex = 8;
 			this.lblPhone.Text = "Phone:";
 			// 
 			// lblEmail
@@ -118,7 +118,7 @@
 			this.lblEmail.Location = new System.Drawing.Point(56, 176);
 			this.lblEmail.Name = "lblEmail";
 			this.lblEmail.Size = new System.Drawing.Size(35, 13);
-			this.lblEmail.TabIndex = 19;
+			this.lblEmail.TabIndex = 9;
 			this.lblEmail.Text = "Email:";
 			// 
 			// txtCustomerID
@@ -128,7 +128,7 @@
 			this.txtCustomerID.Name = "txtCustomerID";
 			this.txtCustomerID.ReadOnly = true;
 			this.txtCustomerID.Size = new System.Drawing.Size(60, 20);
-			this.txtCustomerID.TabIndex = 1;
+			this.txtCustomerID.TabIndex = 10;
 			// 
 			// customersBindingSource
 			// 
@@ -147,7 +147,7 @@
 			this.txtName.Name = "txtName";
 			this.txtName.ReadOnly = true;
 			this.txtName.Size = new System.Drawing.Size(250, 20);
-			this.txtName.TabIndex = 2;
+			this.txtName.TabIndex = 11;
 			// 
 			// txtAddress
 			// 
@@ -156,7 +156,7 @@
 			this.txtAddress.Name = "txtAddress";
 			this.txtAddress.ReadOnly = true;
 			this.txtAddress.Size = new System.Drawing.Size(250, 20);
-			this.txtAddress.TabIndex = 3;
+			this.txtAddress.TabIndex = 12;
 			// 
 			// txtCity
 			// 
@@ -165,7 +165,7 @@
 			this.txtCity.Name = "txtCity";
 			this.txtCity.ReadOnly = true;
 			this.txtCity.Size = new System.Drawing.Size(113, 20);
-			this.txtCity.TabIndex = 4;
+			this.txtCity.TabIndex = 13;
 			// 
 			// txtState
 			// 
@@ -174,7 +174,7 @@
 			this.txtState.Name = "txtState";
 			this.txtState.ReadOnly = true;
 			this.txtState.Size = new System.Drawing.Size(50, 20);
-			this.txtState.TabIndex = 5;
+			this.txtState.TabIndex = 14;
 			// 
 			// txtZip
 			// 
@@ -183,7 +183,7 @@
 			this.txtZip.Name = "txtZip";
 			this.txtZip.ReadOnly = true;
 			this.txtZip.Size = new System.Drawing.Size(75, 20);
-			this.txtZip.TabIndex = 6;
+			this.txtZip.TabIndex = 15;
 			// 
 			// txtPhone
 			// 
@@ -192,7 +192,7 @@
 			this.txtPhone.Name = "txtPhone";
 			this.txtPhone.ReadOnly = true;
 			this.txtPhone.Size = new System.Drawing.Size(150, 20);
-			this.txtPhone.TabIndex = 7;
+			this.txtPhone.TabIndex = 16;
 			// 
 			// txtEmail
 			// 
@@ -201,7 +201,7 @@
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.ReadOnly = true;
 			this.txtEmail.Size = new System.Drawing.Size(250, 20);
-			this.txtEmail.TabIndex = 8;
+			this.txtEmail.TabIndex = 17;
 			// 
 			// incidentsBindingSource1
 			// 
@@ -210,6 +210,9 @@
 			// 
 			// incidentsDataGridView
 			// 
+			this.incidentsDataGridView.AllowUserToAddRows = false;
+			this.incidentsDataGridView.AllowUserToDeleteRows = false;
+			this.incidentsDataGridView.AllowUserToOrderColumns = true;
 			this.incidentsDataGridView.AutoGenerateColumns = false;
 			this.incidentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.incidentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -220,35 +223,9 @@
 			this.incidentsDataGridView.DataSource = this.incidentsBindingSource1;
 			this.incidentsDataGridView.Location = new System.Drawing.Point(12, 199);
 			this.incidentsDataGridView.Name = "incidentsDataGridView";
+			this.incidentsDataGridView.ReadOnly = true;
 			this.incidentsDataGridView.Size = new System.Drawing.Size(618, 221);
-			this.incidentsDataGridView.TabIndex = 9;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductCode";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Product";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "DateOpened";
-			this.dataGridViewTextBoxColumn4.HeaderText = "Date Opened";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.Width = 95;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "DateClosed";
-			this.dataGridViewTextBoxColumn5.HeaderText = "Date Closed";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.Width = 95;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "Title";
-			this.dataGridViewTextBoxColumn6.HeaderText = "Title";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.Width = 250;
+			this.incidentsDataGridView.TabIndex = 17;
 			// 
 			// getCustomerToolStrip
 			// 
@@ -302,6 +279,36 @@
 			// 
 			this.customersTableAdapter.ClearBeforeFill = true;
 			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductCode";
+			this.dataGridViewTextBoxColumn3.HeaderText = "Product";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.DataPropertyName = "DateOpened";
+			this.dataGridViewTextBoxColumn4.HeaderText = "Date Opened";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this.dataGridViewTextBoxColumn5.DataPropertyName = "DateClosed";
+			this.dataGridViewTextBoxColumn5.HeaderText = "Date Closed";
+			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+			this.dataGridViewTextBoxColumn5.ReadOnly = true;
+			this.dataGridViewTextBoxColumn5.Width = 95;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.DataPropertyName = "Title";
+			this.dataGridViewTextBoxColumn6.HeaderText = "Title";
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.ReadOnly = true;
+			this.dataGridViewTextBoxColumn6.Width = 250;
+			// 
 			// frmCustomerIncidents
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +336,7 @@
 			this.Name = "frmCustomerIncidents";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Customer Incidents | Technical Support";
+			this.Load += new System.EventHandler(this.frmCustomerIncidents_Load);
 			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).EndInit();
@@ -365,14 +373,14 @@
 		private System.Windows.Forms.BindingSource customersBindingSource;
 		private System.Windows.Forms.BindingSource incidentsBindingSource1;
 		private System.Windows.Forms.DataGridView incidentsDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.ToolStrip getCustomerToolStrip;
 		private System.Windows.Forms.ToolStripLabel customerIDToolStripLabel;
 		private System.Windows.Forms.ToolStripTextBox customerIDToolStripTextBox;
 		private System.Windows.Forms.ToolStripButton getCustomerToolStripButton;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 
 	}
 }

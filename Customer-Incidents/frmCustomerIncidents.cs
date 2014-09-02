@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -10,6 +17,17 @@ namespace Customer_Incidents
 		public frmCustomerIncidents()
 		{
 			InitializeComponent();
+		}
+
+		/* Window Load */
+		private void frmCustomerIncidents_Load(object sender, EventArgs e)
+		{
+			// Load data into 'techSupportDataSet.Customers' table. - Commented out to stop pre-loading first customer.
+			//this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
+
+			// Load data into 'techSupportDataSet.Incidents' table.
+			this.incidentsTableAdapter.Fill(this.techSupportDataSet.Incidents);
+
 		}
 
 		/* Search Customers */

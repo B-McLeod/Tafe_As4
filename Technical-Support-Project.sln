@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Technician-Maintenance", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer-Incidents", "Customer-Incidents\Customer-Incidents.csproj", "{75E909B2-3CF1-42E4-9ED7-5DEB67306C47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add-Incident", "Add-Incident\Add-Incident.csproj", "{7A4B4FC0-E78C-4427-9F70-29939CA91DC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{75E909B2-3CF1-42E4-9ED7-5DEB67306C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75E909B2-3CF1-42E4-9ED7-5DEB67306C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75E909B2-3CF1-42E4-9ED7-5DEB67306C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4B4FC0-E78C-4427-9F70-29939CA91DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4B4FC0-E78C-4427-9F70-29939CA91DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4B4FC0-E78C-4427-9F70-29939CA91DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4B4FC0-E78C-4427-9F70-29939CA91DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
