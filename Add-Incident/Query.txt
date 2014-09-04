@@ -1,0 +1,5 @@
+SELECT        Customers.CustomerID, Customers.Name, Incidents.DateOpened, Products.Name, Incidents.Title, Incidents.Description
+FROM            Customers CROSS JOIN
+                         Incidents CROSS JOIN
+                         Products
+WHERE        (Customers.CustomerID = @CustomerID)
