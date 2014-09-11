@@ -55,12 +55,17 @@
 			this.tableAdapterManager = new Add_Incident.TechSupportDataSetTableAdapters.TableAdapterManager();
 			this.incidentsTableAdapter = new Add_Incident.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
 			this.productsTableAdapter = new Add_Incident.TechSupportDataSetTableAdapters.ProductsTableAdapter();
-			this.cmbProduct = new System.Windows.Forms.ComboBox();
+			this.registrationsTableAdapter = new Add_Incident.TechSupportDataSetTableAdapters.RegistrationsTableAdapter();
+			this.registrationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.cmbProducts = new System.Windows.Forms.ComboBox();
+			this.fKRegistrationsProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
 			this.tsrSearchCustomers.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.registrationsBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.fKRegistrationsProductsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblCustomerID
@@ -74,7 +79,7 @@
 			// 
 			// txtCustomerID
 			// 
-			this.txtCustomerID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
+			this.txtCustomerID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.incidentsBindingSource, "CustomerID", true));
 			this.txtCustomerID.Location = new System.Drawing.Point(94, 43);
 			this.txtCustomerID.Name = "txtCustomerID";
 			this.txtCustomerID.ReadOnly = true;
@@ -128,6 +133,7 @@
 			this.btnAdd.TabIndex = 4;
 			this.btnAdd.Text = "&Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// txtName
 			// 
@@ -150,6 +156,7 @@
 			// 
 			// txtDateOpened
 			// 
+			this.txtDateOpened.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.incidentsBindingSource, "DateOpened", true));
 			this.txtDateOpened.Location = new System.Drawing.Point(94, 121);
 			this.txtDateOpened.Name = "txtDateOpened";
 			this.txtDateOpened.ReadOnly = true;
@@ -177,6 +184,7 @@
 			// 
 			// txtTitle
 			// 
+			this.txtTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.incidentsBindingSource, "Title", true));
 			this.txtTitle.Location = new System.Drawing.Point(94, 175);
 			this.txtTitle.Name = "txtTitle";
 			this.txtTitle.Size = new System.Drawing.Size(282, 20);
@@ -202,6 +210,7 @@
 			// 
 			// txtDescription
 			// 
+			this.txtDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.incidentsBindingSource, "Description", true));
 			this.txtDescription.Location = new System.Drawing.Point(94, 201);
 			this.txtDescription.Multiline = true;
 			this.txtDescription.Name = "txtDescription";
@@ -253,6 +262,8 @@
 			this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
 			this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
 			this.tableAdapterManager.IncidentsTableAdapter = this.incidentsTableAdapter;
+			this.tableAdapterManager.ProductsTableAdapter = null;
+			this.tableAdapterManager.RegistrationsTableAdapter = null;
 			this.tableAdapterManager.UpdateOrder = Add_Incident.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
 			// 
 			// incidentsTableAdapter
@@ -263,18 +274,31 @@
 			// 
 			this.productsTableAdapter.ClearBeforeFill = true;
 			// 
-			// cmbProduct
+			// registrationsTableAdapter
 			// 
-			this.cmbProduct.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "ProductCode", true));
-			this.cmbProduct.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Name", true));
-			this.cmbProduct.DataSource = this.productsBindingSource;
-			this.cmbProduct.DisplayMember = "Name";
-			this.cmbProduct.FormattingEnabled = true;
-			this.cmbProduct.Location = new System.Drawing.Point(94, 147);
-			this.cmbProduct.Name = "cmbProduct";
-			this.cmbProduct.Size = new System.Drawing.Size(201, 21);
-			this.cmbProduct.TabIndex = 18;
-			this.cmbProduct.ValueMember = "Name";
+			this.registrationsTableAdapter.ClearBeforeFill = true;
+			// 
+			// registrationsBindingSource
+			// 
+			this.registrationsBindingSource.DataMember = "Registrations";
+			this.registrationsBindingSource.DataSource = this.techSupportDataSet;
+			// 
+			// cmbProducts
+			// 
+			this.cmbProducts.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.incidentsBindingSource, "ProductCode", true));
+			this.cmbProducts.DataSource = this.productsBindingSource;
+			this.cmbProducts.DisplayMember = "Name";
+			this.cmbProducts.FormattingEnabled = true;
+			this.cmbProducts.Location = new System.Drawing.Point(94, 147);
+			this.cmbProducts.Name = "cmbProducts";
+			this.cmbProducts.Size = new System.Drawing.Size(201, 21);
+			this.cmbProducts.TabIndex = 18;
+			this.cmbProducts.ValueMember = "ProductCode";
+			// 
+			// fKRegistrationsProductsBindingSource
+			// 
+			this.fKRegistrationsProductsBindingSource.DataMember = "FK_Registrations_Products";
+			this.fKRegistrationsProductsBindingSource.DataSource = this.productsBindingSource;
 			// 
 			// frmAddIncident
 			// 
@@ -283,7 +307,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
 			this.ClientSize = new System.Drawing.Size(396, 317);
-			this.Controls.Add(this.cmbProduct);
+			this.Controls.Add(this.cmbProducts);
 			this.Controls.Add(this.tsrSearchCustomers);
 			this.Controls.Add(this.txtDescription);
 			this.Controls.Add(this.lblDescription);
@@ -305,7 +329,6 @@
 			this.Name = "frmAddIncident";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Add Incident | Technical Support";
-			this.Load += new System.EventHandler(this.frmAddIncident_Load);
 			this.Shown += new System.EventHandler(this.frmAddIncident_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
@@ -313,6 +336,8 @@
 			this.tsrSearchCustomers.ResumeLayout(false);
 			this.tsrSearchCustomers.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.registrationsBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.fKRegistrationsProductsBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -346,7 +371,10 @@
 		private System.Windows.Forms.ToolStripLabel lblSearchCustomers;
 		private System.Windows.Forms.ToolStripButton btnSearchCustomers;
 		private System.Windows.Forms.ToolStripTextBox txtSearchCustomers;
-		private System.Windows.Forms.ComboBox cmbProduct;
+		private TechSupportDataSetTableAdapters.RegistrationsTableAdapter registrationsTableAdapter;
+		private System.Windows.Forms.BindingSource registrationsBindingSource;
+		private System.Windows.Forms.ComboBox cmbProducts;
+		private System.Windows.Forms.BindingSource fKRegistrationsProductsBindingSource;
 	}
 }
 

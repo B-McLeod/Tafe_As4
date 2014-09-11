@@ -1,77 +1,82 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Add_Incident
 {
 	public partial class frmAddIncident : Form
 	{
-		public static String todaysDate = DateTime.Now.ToString("MM/dd/yyyy");
-		/* Default Constructor */
-
+		/* Default Initializer */
 		public frmAddIncident()
 		{
 			InitializeComponent();
+			EnableControls(false);
 		}
 
-		/* Exit Button */
-
-		private void btnExit_Click(object sender, EventArgs e)
+		/* Search Button */
+		private void btnSearchCustomers_Click(object sender, EventArgs e)
 		{
-			Application.Exit();
+			searchCustomers();
+		}
+
+		/* Add Button */
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+			addIncident();
 		}
 
 		/* Cancel Button */
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
-			// Cancel edit
-			this.incidentsBindingSource.CancelEdit();
-
-			// Clear form
-			txtSearchCustomers.Clear();
-			txtCustomerID.Clear();
-			txtName.Clear();
-			txtDateOpened.Clear();
-			txtTitle.Clear();
-			txtDescription.Clear();
-			cmbProducts.Refresh();			//needs work
+			Cancel();
 		}
 
-		/* Search Customers */
+		/* Exit Button */
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+				
 
+
+		/* ------ Helper Methods ------ */
+
+
+		/* Search Customers */
 		private void searchCustomers()
 		{
 			try
 			{
+				int customerID = Convert.ToInt32(txtSearchCustomers.Text);	// Convert textbox to int
 
-				// Display todays date
-				txtDateOpened.Text = todaysDate;
-
-				// Convert textbox to integer
-				int customerID = Convert.ToInt32(txtSearchCustomers.Text);
-
-				// Display Customer Name
+				// Set Customer
 				this.customersTableAdapter.setCustomer(this.techSupportDataSet.Customers, customerID);
-				// Display Customers Registered Products
-				this.productsTableAdapter.getProducts(this.techSupportDataSet.Products, customerID);
-				// Add blank Incident row
-				this.incidentsBindingSource.AddNew();
-				this.incidentsTableAdapter.newIncident(this.techSupportDataSet.Incidents, customerID, todaysDate);
 
-				// Enable 'Add' and 'Cancel' buttons
-				btnAdd.Enabled = true;
-				btnCancel.Enabled = true;
-
-				// If no record is found
-				if (this.techSupportDataSet.Customers.Rows.Count == 0)
+				if (this.customersBindingSource.Count > 0)
 				{
-					// Disable 'Add' and 'Cancel' buttons
-					btnAdd.Enabled = false;
-					btnCancel.Enabled = false;
-					txtDateOpened.Clear();
+					// Populate Products field w/ Registered Products to that Customer
+					this.productsTableAdapter.FillByRegistrations(this.techSupportDataSet.Products, customerID);
+					
+					incidentsBindingSource.AddNew();						// Add new row to incidents table
 
-					MessageBox.Show("No Record Found");
+					txtCustomerID.Text = customerID.ToString();				// Set CustomerID Field
+					txtDateOpened.Text = DateTime.Now.ToShortDateString();	// Set TodaysDate Field
+					EnableControls(true);									// Enable Controls
+					cmbProducts.Focus();
+				}
+
+				// No Record Found
+				else
+				{
+					txtCustomerID.Clear();							// Clear CustomerID Field
+					txtDateOpened.Clear();							// Clear Date Field
+					EnableControls(false);							// Disable Controls
+					// Display Notification
+					MessageBox.Show("Customer ID (" + txtSearchCustomers.Text + ") does not exist in this database.", "No Record Found");
+					
+					txtSearchCustomers.Clear();
+					txtSearchCustomers.Focus();
 				}
 			}
 			catch (Exception ex)
@@ -81,34 +86,44 @@ namespace Add_Incident
 		}
 
 		/* Add Incident */
-
 		private void addIncident()
 		{
-			if (IsValidData())
+			if (customersBindingSource.Count > 0)
 			{
-				try
+				if (IsValidData())
 				{
-					this.customersBindingSource.EndEdit();
-					this.tableAdapterManager.UpdateAll(this.techSupportDataSet);
-				}
-				catch (ArgumentException ex)
-				{
-					MessageBox.Show(ex.Message, "Arguement Exception");
-					customersBindingSource.CancelEdit();
-				}
-				catch (DBConcurrencyException)
-				{
-					MessageBox.Show("A concurrency error occurred. Some rows were not updated.", "Concurrency Exception");
-					this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
-				}
-				catch (DataException ex)
-				{
-					MessageBox.Show(ex.Message, ex.GetType().ToString());
-					customersBindingSource.CancelEdit();
-				}
-				catch (SqlException ex)
-				{
-					MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+					try
+					{
+						this.customersBindingSource.EndEdit();
+						this.incidentsBindingSource.EndEdit();
+						this.tableAdapterManager.UpdateAll(this.techSupportDataSet);
+
+						MessageBox.Show("Incident Added:\n" +
+							"\tCustomer ID: " + txtCustomerID.Text +
+							"\n\tName: " + txtName.Text +
+							"\n\tDate Opened: " + txtDateOpened.Text +
+							"\n\tTitle: " + txtTitle.Text +
+							"\n\tDescription: " + txtDescription.Text, "Incident Added");
+					}
+					catch (ArgumentException ex)
+					{
+						MessageBox.Show(ex.Message, "Arguement Exception");
+						customersBindingSource.CancelEdit();
+					}
+					catch (DBConcurrencyException)
+					{
+						MessageBox.Show("A concurrency error occurred. Some rows were not updated.", "Concurrency Exception");
+						this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
+					}
+					catch (DataException ex)
+					{
+						MessageBox.Show(ex.Message, ex.GetType().ToString());
+						customersBindingSource.CancelEdit();
+					}
+					catch (SqlException ex)
+					{
+						MessageBox.Show("Database error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
+					}
 				}
 			}
 			else
@@ -129,39 +144,94 @@ namespace Add_Incident
 			}
 		}
 
-		/* Helper Methods */
+		/* Validate Data */
+		public bool IsValidData()
+		{
+			return
+				IsPresent(txtCustomerID, "CustomerID") &&
+				IsPresent(txtName, "Name") &&
+				IsPresent(txtDateOpened, "DateOpened") &&
+				IsPresent(cmbProducts, "Products") &&
+				IsPresent(txtTitle, "Title") &&
+				IsPresent(txtDescription, "Description");
+		}
 
-		//
-		// Set default focus to search field
-		//
+		/* Check for controls for content */
+		public bool IsPresent(Control control, String name)
+		{
+			if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
+			{
+				TextBox textBox = (TextBox)control;
+				if (textBox.Text == "")
+				{
+					MessageBox.Show(name + " is a required field.", "Missing Information");
+					textBox.Focus();
+					return false;
+				}
+			}
+			else if (control.GetType().ToString() == "System.Windows.Forms.ComboBox")
+			{
+				ComboBox comboBox = (ComboBox)control;
+				if (comboBox.SelectedIndex == -1)
+				{
+					MessageBox.Show(name + " is a required field.", "Missing Information");
+					comboBox.Focus();
+					return false;
+				}
+			}
+			return true;
+		}
+
+		 /* Enable/Disable Controls */
+		private void EnableControls(bool control)
+		{
+			// Enable Controls
+			if (control == true)
+			{
+				btnAdd.Enabled = true;
+				btnCancel.Enabled = true;
+				cmbProducts.Enabled = true;
+				txtTitle.ReadOnly = false;
+				txtDescription.ReadOnly = false;
+			}
+			// Disable Controls
+			else if (control == false)
+			{
+				btnAdd.Enabled = false;
+				btnCancel.Enabled = false;
+				cmbProducts.Enabled = false;
+				txtTitle.ReadOnly = true;
+				txtDescription.ReadOnly = true;
+			}
+		}
+
+		/* Cancel Changes */
+		private void Cancel()
+		{
+			// Cancel edits
+			this.customersBindingSource.CancelEdit();
+			this.incidentsBindingSource.CancelEdit();
+			this.productsBindingSource.CancelEdit();
+			this.registrationsBindingSource.CancelEdit();
+
+			// Remove Current Customer
+			this.customersBindingSource.RemoveCurrent();
+
+			// Clear form
+			txtSearchCustomers.Clear();
+			txtCustomerID.Clear();
+			txtName.Clear();
+			txtDateOpened.Clear();
+			txtTitle.Clear();
+			txtDescription.Clear();
+
+			EnableControls(false);
+		}
+
+		/* Set default focus to search field */
 		private void frmAddIncident_Shown(object sender, EventArgs e)
 		{
 			txtSearchCustomers.Focus();
 		}
-
-		//
-		// Pre-Fill Data (Commented Out)
-		//
-		private void frmAddIncident_Load(object sender, EventArgs e)
-		{
-			// Products Table
-			//this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
-
-			// Incidents Table
-			//this.incidentsTableAdapter.Fill(this.techSupportDataSet.Incidents);
-
-			// Customers Table
-			//this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
-		}
-
-		//
-		// Search Button Click
-		//
-		private void btnSearchCustomers_Click(object sender, EventArgs e)
-		{
-			searchCustomers();
-		}
-
-
 	}
 }
