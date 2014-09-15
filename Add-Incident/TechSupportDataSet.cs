@@ -7,6 +7,9 @@
 }
 
 namespace Add_Incident.TechSupportDataSetTableAdapters {
+	partial class CustomersTableAdapter
+	{
+	}
 
 	partial class RegistrationsTableAdapter
 	{

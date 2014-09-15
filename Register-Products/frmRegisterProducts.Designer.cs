@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			this.btnRegister = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnExit = new System.Windows.Forms.Button();
@@ -36,17 +35,8 @@
 			this.lblProduct = new System.Windows.Forms.Label();
 			this.lblRegDate = new System.Windows.Forms.Label();
 			this.cmbCustomer = new System.Windows.Forms.ComboBox();
-			this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.techSupportDataSet = new Register_Products.TechSupportDataSet();
 			this.cmbProduct = new System.Windows.Forms.ComboBox();
-			this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.txtRegDate = new System.Windows.Forms.TextBox();
-			this.customersTableAdapter = new Register_Products.TechSupportDataSetTableAdapters.CustomersTableAdapter();
-			this.tableAdapterManager = new Register_Products.TechSupportDataSetTableAdapters.TableAdapterManager();
-			this.productsTableAdapter = new Register_Products.TechSupportDataSetTableAdapters.ProductsTableAdapter();
-			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnRegister
@@ -115,16 +105,6 @@
 			this.cmbCustomer.Size = new System.Drawing.Size(275, 21);
 			this.cmbCustomer.TabIndex = 1;
 			// 
-			// customersBindingSource
-			// 
-			this.customersBindingSource.DataMember = "Customers";
-			this.customersBindingSource.DataSource = this.techSupportDataSet;
-			// 
-			// techSupportDataSet
-			// 
-			this.techSupportDataSet.DataSetName = "TechSupportDataSet";
-			this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
 			// cmbProduct
 			// 
 			this.cmbProduct.FormattingEnabled = true;
@@ -133,33 +113,12 @@
 			this.cmbProduct.Size = new System.Drawing.Size(275, 21);
 			this.cmbProduct.TabIndex = 2;
 			// 
-			// productsBindingSource
-			// 
-			this.productsBindingSource.DataMember = "Products";
-			this.productsBindingSource.DataSource = this.techSupportDataSet;
-			// 
 			// txtRegDate
 			// 
 			this.txtRegDate.Location = new System.Drawing.Point(70, 63);
 			this.txtRegDate.Name = "txtRegDate";
 			this.txtRegDate.Size = new System.Drawing.Size(100, 20);
 			this.txtRegDate.TabIndex = 3;
-			// 
-			// customersTableAdapter
-			// 
-			this.customersTableAdapter.ClearBeforeFill = true;
-			// 
-			// tableAdapterManager
-			// 
-			this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-			this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-			this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
-			this.tableAdapterManager.RegistrationsTableAdapter = null;
-			this.tableAdapterManager.UpdateOrder = Register_Products.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-			// 
-			// productsTableAdapter
-			// 
-			this.productsTableAdapter.ClearBeforeFill = true;
 			// 
 			// frmRegisterProducts
 			// 
@@ -183,9 +142,6 @@
 			this.Name = "frmRegisterProducts";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Add Registration | Technical Support";
-			((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -202,12 +158,6 @@
 		private System.Windows.Forms.ComboBox cmbCustomer;
 		private System.Windows.Forms.ComboBox cmbProduct;
 		private System.Windows.Forms.TextBox txtRegDate;
-		private TechSupportDataSet techSupportDataSet;
-		private System.Windows.Forms.BindingSource customersBindingSource;
-		private TechSupportDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
-		private TechSupportDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-		private TechSupportDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-		private System.Windows.Forms.BindingSource productsBindingSource;
 	}
 }
 
