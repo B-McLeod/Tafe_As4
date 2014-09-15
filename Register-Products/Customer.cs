@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace Register_Products
 {
-	class Customer
+	internal class Customer
 	{
 		/* Variables */
 		private int CustomerID;
 		private String CustomerName;
 
 		/* Default Initializer */
+
 		public Customer()
 		{
 			CustomerID = 0;
@@ -21,13 +17,23 @@ namespace Register_Products
 		}
 
 		/* Overloaded Initializer */
+
 		public Customer(int id, String name)
 		{
 			this.CustomerID = id;
 			this.CustomerName = name;
 		}
 
+		/* -- Getters -- */
 
+		public int getCustomerID()	// CustomerID
+		{
+			return this.CustomerID;
+		}
 
+		public String getCustomerName() // Customer Name
+		{
+			return this.CustomerName;
+		}
 	}
 }

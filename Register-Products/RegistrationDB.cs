@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Register_Products
 {
-	static class RegistrationDB
+	class RegistrationDB
 	{
 		public void AddRegistration()
 		{

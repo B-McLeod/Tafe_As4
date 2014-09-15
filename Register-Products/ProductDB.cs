@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Register_Products
 {
-	static class ProductDB
+	class ProductDB
 	{
 		public void GetProducts()
 		{

@@ -7,16 +7,24 @@ using System.Threading.Tasks;
 
 namespace Register_Products
 {
-	static class CustomerDB
+	class CustomerDB
 	{
 		public List<Customer> GetCustomers()
 		{
 			/* The GetCustomers method in the CustomerDB class should return
 			 * a List<Customer> object that can be bound to the Customer combo box */
-			List<Customer> customerList;
+			
+			SqlConnection techConn = TechSupportDB.GetConnection();
+			techConn.Open();
 
-			customerList.Add(042, "Mate");
+			String statement = "SELECT `Name` FROM `Customers`";
 
+			SqlCommand selectCustomers = new SqlCommand(statement, techConn);
+
+			// PAGE 653
+			SqlDataReader reader = selectCustomers.ExecuteReader()
+
+			techConn.Close();
 
 			return customerList;
 		}

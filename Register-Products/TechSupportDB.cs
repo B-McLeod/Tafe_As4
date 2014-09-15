@@ -4,15 +4,15 @@ using System.Windows.Forms;
 
 namespace Register_Products
 {
-	static class TechSupportDB
+	public static class TechSupportDB
 	{
-		// Path of database file
-		private String sourceDB = "C:\\Users\\2102771708\\" +
-									"Dropbox\\GitHub\\C#\\Technical-Support-Project\\Database\\TechSupport.mdf";
-
 		// Connect to the TechSupport.mdf database
-		public SqlConnection GetConnection()
+		public static SqlConnection GetConnection()
 		{
+			// Path of database file
+			String sourceDB = "C:\\Users\\2102771708\\" +
+								"Dropbox\\GitHub\\C#\\Technical-Support-Project\\Database\\TechSupport.mdf";
+
 			try
 			{
 				//Connection String

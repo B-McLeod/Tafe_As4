@@ -8,12 +8,36 @@ namespace Register_Products
 {
 	class Product
 	{
-		String ProductName;
+		/* Variables */
+		String Name;
 		String ProductCode;
 
-		public void Product()
+		/* Default Initializer */
+
+		public Product()
 		{
-			// Code here
+			Name = null;
+			ProductCode = null;
+		}
+
+		/* Overloaded Initializer */
+
+		public Product(String name, String code)
+		{
+			this.Name = name;
+			this.ProductCode = code;
+		}
+
+		/* -- Getters -- */
+
+		public String getProductName()	// Product Name
+		{
+			return this.Name;
+		}
+
+		public String getProductCode() // Product Code
+		{
+			return this.ProductCode;
 		}
 	}
 }
