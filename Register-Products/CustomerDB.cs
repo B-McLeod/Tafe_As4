@@ -11,13 +11,14 @@ namespace Register_Products
 	{
 		public List<Customer> GetCustomers()
 		{
-			/*
-			 * 
-			 * The GetCustomers method in the CustomerDB class should return
-			 * a List<Customer> object that can be bound to the Customer combo box.
-			 * 
-			 */
-			
+			/* The GetCustomers method in the CustomerDB class should return
+			 * a List<Customer> object that can be bound to the Customer combo box */
+			List<Customer> customerList;
+
+			customerList.Add(042, "Mate");
+
+
+			return customerList;
 		}
 	}
 }

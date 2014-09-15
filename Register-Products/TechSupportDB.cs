@@ -20,8 +20,8 @@ namespace Register_Products
 					"Data Source=(LocalDB)\\v11.0;AttachDbFilename=" + sourceDB + ";" +
 					"Integrated Security=True";
 
-				SqlConnection connTechSupp = new SqlConnection(connString); // Create connection
-				return connTechSupp;
+				SqlConnection connTechSupport = new SqlConnection(connString); // Create connection
+				return connTechSupport;
 			}
 			catch (SqlException ex)
 			{
