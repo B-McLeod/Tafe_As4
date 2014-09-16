@@ -10,7 +10,8 @@ namespace Register_Products
 		public static SqlConnection GetConnection()
 		{
 			// Path of database file
-			String sourceDB = "C:\\Users\\2102771708\\" +
+			/* Users\\2102771708\\ */
+			String sourceDB = "C:\\" + 
 								"Dropbox\\GitHub\\C#\\Technical-Support-Project\\Database\\TechSupport.mdf";
 
 			try

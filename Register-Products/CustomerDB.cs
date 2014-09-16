@@ -1,32 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Register_Products
 {
-	class CustomerDB
+	public static class CustomerDB
 	{
-		public List<Customer> GetCustomers()
+		public static List<Customer> GetCustomers()
 		{
 			/* The GetCustomers method in the CustomerDB class should return
 			 * a List<Customer> object that can be bound to the Customer combo box */
-			
-			SqlConnection techConn = TechSupportDB.GetConnection();
-			techConn.Open();
 
-			String statement = "SELECT `Name` FROM `Customers`";
+			SqlConnection connection = TechSupportDB.GetConnection();
+			String queryString = "SELECT CustomerID, Name FROM Customers";
+			SqlCommand selectCustomers = new SqlCommand(queryString, connection);
 
-			SqlCommand selectCustomers = new SqlCommand(statement, techConn);
+			try
+			{
+				connection.Open();
+				SqlDataReader reader = selectCustomers.ExecuteReader();
 
-			// PAGE 653
-			SqlDataReader reader = selectCustomers.ExecuteReader()
+				// Initialize and build customerList from SQL query
+				List<Customer> customerList = new List<Customer>();
+				while (reader.Read())
+				{
+					int id = Convert.ToInt32(reader["CustomerID"]);
+					String name = reader["Name"].ToString();
+					Customer c = new Customer(id, name);
+					customerList.Add(c);
+				}
+				reader.Close();
 
-			techConn.Close();
-
-			return customerList;
+				return customerList;
+			}
+			catch (SqlException ex)
+			{
+				return null;
+				throw ex;
+			}
+			finally
+			{
+				connection.Close();
+			}
 		}
 	}
 }

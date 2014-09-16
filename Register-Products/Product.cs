@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Register_Products
 {
-	class Product
+	public class Product
 	{
 		/* Variables */
-		String Name;
-		String ProductCode;
+
+		public String Name { get; set; }
+
+		public String ProductCode { get; set; }
 
 		/* Default Initializer */
 
@@ -26,18 +24,6 @@ namespace Register_Products
 		{
 			this.Name = name;
 			this.ProductCode = code;
-		}
-
-		/* -- Getters -- */
-
-		public String getProductName()	// Product Name
-		{
-			return this.Name;
-		}
-
-		public String getProductCode() // Product Code
-		{
-			return this.ProductCode;
 		}
 	}
 }

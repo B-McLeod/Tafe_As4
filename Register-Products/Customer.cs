@@ -2,18 +2,20 @@
 
 namespace Register_Products
 {
-	internal class Customer
+	public class Customer
 	{
 		/* Variables */
-		private int CustomerID;
-		private String CustomerName;
+
+		public int CustomerID { get; set; }
+
+		public String Name { get; set; }
 
 		/* Default Initializer */
 
 		public Customer()
 		{
 			CustomerID = 0;
-			CustomerName = null;
+			Name = null;
 		}
 
 		/* Overloaded Initializer */
@@ -21,19 +23,7 @@ namespace Register_Products
 		public Customer(int id, String name)
 		{
 			this.CustomerID = id;
-			this.CustomerName = name;
-		}
-
-		/* -- Getters -- */
-
-		public int getCustomerID()	// CustomerID
-		{
-			return this.CustomerID;
-		}
-
-		public String getCustomerName() // Customer Name
-		{
-			return this.CustomerName;
+			this.Name = name;
 		}
 	}
 }
