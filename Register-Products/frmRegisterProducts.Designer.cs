@@ -36,7 +36,9 @@
 			this.lblRegDate = new System.Windows.Forms.Label();
 			this.cmbCustomer = new System.Windows.Forms.ComboBox();
 			this.cmbProduct = new System.Windows.Forms.ComboBox();
-			this.txtRegDate = new System.Windows.Forms.TextBox();
+			this.DTPickerRegistration = new System.Windows.Forms.DateTimePicker();
+			this.txtTest = new System.Windows.Forms.TextBox();
+			this.txtTest2 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// btnRegister
@@ -62,7 +64,7 @@
 			// 
 			// btnExit
 			// 
-			this.btnExit.Location = new System.Drawing.Point(270, 100);
+			this.btnExit.Location = new System.Drawing.Point(228, 100);
 			this.btnExit.Name = "btnExit";
 			this.btnExit.Size = new System.Drawing.Size(75, 23);
 			this.btnExit.TabIndex = 6;
@@ -102,23 +104,40 @@
 			this.cmbCustomer.FormattingEnabled = true;
 			this.cmbCustomer.Location = new System.Drawing.Point(70, 9);
 			this.cmbCustomer.Name = "cmbCustomer";
-			this.cmbCustomer.Size = new System.Drawing.Size(275, 21);
+			this.cmbCustomer.Size = new System.Drawing.Size(233, 21);
 			this.cmbCustomer.TabIndex = 1;
+			this.cmbCustomer.SelectedIndexChanged += new System.EventHandler(this.cmbCustomer_SelectedIndexChanged);
 			// 
 			// cmbProduct
 			// 
 			this.cmbProduct.FormattingEnabled = true;
 			this.cmbProduct.Location = new System.Drawing.Point(70, 36);
 			this.cmbProduct.Name = "cmbProduct";
-			this.cmbProduct.Size = new System.Drawing.Size(275, 21);
+			this.cmbProduct.Size = new System.Drawing.Size(233, 21);
 			this.cmbProduct.TabIndex = 2;
 			// 
-			// txtRegDate
+			// DTPickerRegistration
 			// 
-			this.txtRegDate.Location = new System.Drawing.Point(70, 63);
-			this.txtRegDate.Name = "txtRegDate";
-			this.txtRegDate.Size = new System.Drawing.Size(100, 20);
-			this.txtRegDate.TabIndex = 3;
+			this.DTPickerRegistration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.DTPickerRegistration.Location = new System.Drawing.Point(70, 63);
+			this.DTPickerRegistration.Name = "DTPickerRegistration";
+			this.DTPickerRegistration.Size = new System.Drawing.Size(106, 20);
+			this.DTPickerRegistration.TabIndex = 3;
+			this.DTPickerRegistration.Value = new System.DateTime(2014, 9, 16, 10, 55, 27, 0);
+			// 
+			// txtTest
+			// 
+			this.txtTest.Location = new System.Drawing.Point(203, 63);
+			this.txtTest.Name = "txtTest";
+			this.txtTest.Size = new System.Drawing.Size(100, 20);
+			this.txtTest.TabIndex = 7;
+			// 
+			// txtTest2
+			// 
+			this.txtTest2.Location = new System.Drawing.Point(309, 63);
+			this.txtTest2.Name = "txtTest2";
+			this.txtTest2.Size = new System.Drawing.Size(100, 20);
+			this.txtTest2.TabIndex = 8;
 			// 
 			// frmRegisterProducts
 			// 
@@ -126,8 +145,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(357, 135);
-			this.Controls.Add(this.txtRegDate);
+			this.ClientSize = new System.Drawing.Size(453, 135);
+			this.Controls.Add(this.txtTest2);
+			this.Controls.Add(this.txtTest);
+			this.Controls.Add(this.DTPickerRegistration);
 			this.Controls.Add(this.cmbProduct);
 			this.Controls.Add(this.cmbCustomer);
 			this.Controls.Add(this.lblRegDate);
@@ -157,7 +178,9 @@
 		private System.Windows.Forms.Label lblRegDate;
 		private System.Windows.Forms.ComboBox cmbCustomer;
 		private System.Windows.Forms.ComboBox cmbProduct;
-		private System.Windows.Forms.TextBox txtRegDate;
+		private System.Windows.Forms.DateTimePicker DTPickerRegistration;
+		private System.Windows.Forms.TextBox txtTest;
+		private System.Windows.Forms.TextBox txtTest2;
 	}
 }
 
