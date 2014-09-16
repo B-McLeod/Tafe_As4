@@ -8,8 +8,13 @@ namespace Register_Products
 	{
 		public static List<Product> GetProducts()
 		{
+<<<<<<< HEAD
 			/* The GetProducts method in the ProductDB class should return a
 			* List<Product> object that can be bound to the Product combo box. */
+=======
+			 /* The GetProducts method in the ProductDB class should return a
+			 * List<Product> object that can be bound to the Product combo box. */
+>>>>>>> origin/master
 
 			SqlConnection connection = TechSupportDB.GetConnection();
 			String queryString = "SELECT Name, ProductCode FROM Products";

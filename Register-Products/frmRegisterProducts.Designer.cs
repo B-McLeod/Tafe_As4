@@ -37,6 +37,11 @@
 			this.cmbCustomer = new System.Windows.Forms.ComboBox();
 			this.cmbProduct = new System.Windows.Forms.ComboBox();
 			this.DTPickerRegistration = new System.Windows.Forms.DateTimePicker();
+<<<<<<< HEAD
+=======
+			this.txtTest = new System.Windows.Forms.TextBox();
+			this.txtTest2 = new System.Windows.Forms.TextBox();
+>>>>>>> origin/master
 			this.SuspendLayout();
 			// 
 			// btnRegister
@@ -104,6 +109,7 @@
 			this.cmbCustomer.Name = "cmbCustomer";
 			this.cmbCustomer.Size = new System.Drawing.Size(233, 21);
 			this.cmbCustomer.TabIndex = 1;
+			this.cmbCustomer.SelectedIndexChanged += new System.EventHandler(this.cmbCustomer_SelectedIndexChanged);
 			// 
 			// cmbProduct
 			// 
@@ -121,6 +127,23 @@
 			this.DTPickerRegistration.Size = new System.Drawing.Size(106, 20);
 			this.DTPickerRegistration.TabIndex = 3;
 			this.DTPickerRegistration.Value = new System.DateTime(2014, 9, 16, 10, 55, 27, 0);
+<<<<<<< HEAD
+=======
+			// 
+			// txtTest
+			// 
+			this.txtTest.Location = new System.Drawing.Point(203, 63);
+			this.txtTest.Name = "txtTest";
+			this.txtTest.Size = new System.Drawing.Size(100, 20);
+			this.txtTest.TabIndex = 7;
+			// 
+			// txtTest2
+			// 
+			this.txtTest2.Location = new System.Drawing.Point(309, 63);
+			this.txtTest2.Name = "txtTest2";
+			this.txtTest2.Size = new System.Drawing.Size(100, 20);
+			this.txtTest2.TabIndex = 8;
+>>>>>>> origin/master
 			// 
 			// frmRegisterProducts
 			// 
@@ -128,7 +151,13 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
+<<<<<<< HEAD
 			this.ClientSize = new System.Drawing.Size(315, 135);
+=======
+			this.ClientSize = new System.Drawing.Size(453, 135);
+			this.Controls.Add(this.txtTest2);
+			this.Controls.Add(this.txtTest);
+>>>>>>> origin/master
 			this.Controls.Add(this.DTPickerRegistration);
 			this.Controls.Add(this.cmbProduct);
 			this.Controls.Add(this.cmbCustomer);
@@ -160,6 +189,11 @@
 		private System.Windows.Forms.ComboBox cmbCustomer;
 		private System.Windows.Forms.ComboBox cmbProduct;
 		private System.Windows.Forms.DateTimePicker DTPickerRegistration;
+<<<<<<< HEAD
+=======
+		private System.Windows.Forms.TextBox txtTest;
+		private System.Windows.Forms.TextBox txtTest2;
+>>>>>>> origin/master
 	}
 }
 
