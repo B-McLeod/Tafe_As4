@@ -11,7 +11,7 @@ namespace Register_Products
 		{
 			// Path of database file
 			/* Users\\2102771708\\ */
-			String sourceDB = "C:\\" + 
+			String sourceDB = "C:\\" +
 								"Dropbox\\GitHub\\C#\\Technical-Support-Project\\Database\\TechSupport.mdf";
 
 			try
