@@ -263,7 +263,7 @@
 			this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
 			this.tableAdapterManager.IncidentsTableAdapter = this.incidentsTableAdapter;
 			this.tableAdapterManager.ProductsTableAdapter = null;
-			this.tableAdapterManager.RegistrationsTableAdapter = null;
+			this.tableAdapterManager.CustomersTableAdapter = null;
 			this.tableAdapterManager.UpdateOrder = Add_Incident.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
 			// 
 			// incidentsTableAdapter
@@ -276,7 +276,7 @@
 			// 
 			// registrationsTableAdapter
 			// 
-			this.registrationsTableAdapter.ClearBeforeFill = true;
+			this.customersTableAdapter.ClearBeforeFill = true;
 			// 
 			// registrationsBindingSource
 			// 

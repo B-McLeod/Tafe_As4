@@ -6,7 +6,7 @@ namespace Register_Products
 {
 	public class RegistrationDB
 	{
-		public static void AddRegistration(Registration reg)
+		public static bool AddRegistration(Registration reg)
 		{
 			/*
 			 * AddRegistration method in the RegistrationDB class should accept a Registration
@@ -14,7 +14,6 @@ namespace Register_Products
 			 * Use the value that’s returned by the AddRegistration method to display a message
 			 * indicating the result of the operation.
 			 * */
-
 			SqlConnection connection = TechSupportDB.GetConnection();
 			String insertStatement = "INSERT Registrations " +
 				"(CustomerID, ProductCode, RegistrationDate)" +
@@ -29,13 +28,19 @@ namespace Register_Products
 			{
 				connection.Open();
 				insert.ExecuteNonQuery();
-				MessageBox.Show("Success");
+				return true;
 			}
 			catch (SqlException ex)
 			{
-				MessageBox.Show(ex.Message, "SQL Exception");
-				MessageBox.Show("Fail");
-				throw ex;
+				if (ex.Number == 2627)
+				{
+					MessageBox.Show("This product is already registered to this person!");
+				}
+				else
+				{
+					MessageBox.Show(ex.Message, "SQL Exception");
+				}
+				return false;
 			}
 			finally
 			{

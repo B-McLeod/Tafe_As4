@@ -36,17 +36,15 @@ namespace Register_Products
 				regDate = DTPickerRegistration.Value;
 
 				Registration rego = new Registration(custID, prodCode, regDate);
-				RegistrationDB.AddRegistration(rego);
-				bool on = RegistrationDB.AddRegistration(rego);
-
-				if (on == true)
+				//RegistrationDB.AddRegistration(rego);
+				if (RegistrationDB.AddRegistration(rego) == true)
 				{
-					MessageBox.Show("Success");
+					MessageBox.Show("Registration Complete.");
 					clearForm();
 				}
 				else
 				{
-					MessageBox.Show("Fail");
+					MessageBox.Show("Registration Failed.");
 				}
 			}
 			catch (Exception ex)
